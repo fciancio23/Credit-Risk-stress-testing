@@ -1,5 +1,6 @@
 import pandas as pd
-df = pd.read_csv("C:/Users/KJ9115/Desktop/Restaurant/Candidature/Portfolio/Credit Risk Project/data/processed/companies_market_metrics.csv")
+df = pd.read_csv(".../Credit Risk Project/data/processed/companies_market_metrics.csv")
+#output_path --> replace "..." with personal path
 
 #Hypotesis of recession scenario
 
@@ -53,7 +54,8 @@ print(
 
 #Export dataset
 
-output_path = ("C:/Users/KJ9115/Desktop/Restaurant/Candidature/Portfolio/Credit Risk Project/data/processed/companies_final_df.csv")
+output_path = (".../Credit Risk Project/data/processed/companies_final_df.csv")
+#output_path --> replace "..." with personal path
 
 df.to_csv(output_path, index=False)
 print("\nStress test completed successfully.")

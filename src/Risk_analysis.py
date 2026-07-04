@@ -1,7 +1,8 @@
 import pandas as pd
 
 #Load dataset
-df = pd.read_csv("C:/Users/KJ9115/Desktop/Restaurant/Candidature/Portfolio/Credit Risk Project/data/raw/european_companies.csv")
+df = pd.read_csv(".../Credit Risk Project/data/raw/european_companies.csv")
+#output_path --> replace "..." with personal path
 
 #Financial risk metrics
 
@@ -21,8 +22,8 @@ print(df[
 
 #Export dataset
 
-output_path = ("C:/Users/KJ9115/Desktop/Restaurant/Candidature/Portfolio/Credit Risk Project/data/processed/companies_risk_metrics.csv")
-
+output_path = (".../Credit Risk Project/data/processed/companies_risk_metrics.csv")
+#output_path --> replace "..." with personal path
 df.to_csv(output_path, index=False)
 print("\nRisk metrics calculated successfully.")
 print(f"Number of companies: {len(df)}")

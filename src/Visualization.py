@@ -5,7 +5,8 @@ import seaborn as sns
 
 #Load dataset
 
-df = pd.read_csv("C:/Users/KJ9115/Desktop/Restaurant/Candidature/Portfolio/Credit Risk Project/data/processed/companies_final_df.csv")
+df = pd.read_csv(".../Credit Risk Project/data/processed/companies_final_df.csv")
+#output_path --> replace "..." with personal path
 
 #Medians calculation
 
@@ -28,9 +29,9 @@ plt.axhline(median_debt, linestyle="--")
 plt.yscale("log") #Puma case
 
 #Highlight main Debt/EBITDA - Volatility
-outliers = ["PUMA SE                       I", "PROSUS", "KERING",
-            "Nokia Corporation", "ASML HOLDING",
-            "RWE AG                        I"]
+outliers = ["Puma", "Prosus", "Kering",
+            "Nokia", "ASML",
+            "RWE"]
 
 for _, row in df.iterrows():
  if row["Company"] in outliers:
@@ -44,9 +45,10 @@ plt.xlabel("Annual Volatility (1Y)")
 plt.ylabel("Debt / EBITDA (log scale)")
 plt.legend(bbox_to_anchor=(1.05, 1), loc="upper left")
 plt.tight_layout()
-plt.savefig("C:/Users/KJ9115/Desktop/Restaurant/Candidature/Portfolio/Credit Risk Project/Outputs/figure/risk_matrix.png",
+plt.savefig(".../Credit Risk Project/Outputs/figure/risk_matrix.png",
             dpi=300,
             bbox_inches="tight")
+#replace "..." with personal path
 plt.show()
 # </editor-fold>
 
@@ -62,7 +64,7 @@ labels = [f"{sector}\n(n={sector_count[sector]})"
 
 sns.set_style("whitegrid")
 
-plt.figure(figsize=(12,7))
+plt.figure(figsize=(14,8))
 ax = sns.barplot(
     x = sector_debt.index,
     y = sector_debt.values
@@ -76,19 +78,20 @@ for i, value in enumerate(sector_debt.values):
         f"{value:.1f}",
         ha="center",
         va="bottom",
-        fontsize=10,
+        fontsize=12,
         fontweight="bold",
     )
 ax.set_xticks(range(len(labels)))
 ax.set_xticklabels(labels)
 
-plt.title("Sector financial risk profile", fontsize=14)
+plt.title("Sector financial risk profile", fontsize=16)
 plt.xlabel("Sector")
 plt.ylabel("Debt / EBITDA")
 plt.tight_layout()
-plt.savefig("C:/Users/KJ9115/Desktop/Restaurant/Candidature/Portfolio/Credit Risk Project/Outputs/figure/Sector_risk.png",
+plt.savefig(".../Credit Risk Project/Outputs/figure/Sector_risk.png",
             dpi=300,
             bbox_inches="tight")
+#replace "..." with personal path
 plt.show()
 # </editor-fold>
 
@@ -140,6 +143,7 @@ pd.set_option('display.max_columns', None)
 pd.set_option('display.width', None)
 print(top10_table)
 
-top10_table.to_csv("C:/Users/KJ9115/Desktop/Restaurant/Candidature/Portfolio/Credit Risk Project/Outputs/table/Top_10_stressed_companies.csv",
+top10_table.to_csv(".../Credit Risk Project/Outputs/table/Top_10_stressed_companies.csv",
                    index=False)
+#replace "..." with personal path
 # </editor-fold>

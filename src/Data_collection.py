@@ -59,9 +59,55 @@ df = df.dropna(
     ]
 )
 
+#Manual mapping: known dirty â†’ clean name
+name_map = {
+    # Energy
+    "Shell PLC": "Shell",
+    "BP p.l.c.": "BP",
+    "TOTALENERGIES": "TotalEnergies",
+    "ENI": "Eni",
+    "ACCIONES IBERDROLA": "Iberdrola",
+    "ENEL": "Enel",
+    "ENGIE": "Engie",
+    "RWE AG                        I": "RWE",
+    # Industrials
+    "SIEMENS AG                    N": "Siemens",
+    "SCHNEIDER ELECTRIC SE": "Schneider Electric",
+    "SAFRAN": "Safran",
+    "ROLLS-ROYCE HOLDINGS PLC ORD SH": "Rolls-Royce",
+    # Automotive
+    "VOLKSWAGEN AG                 V": "Volkswagen",
+    "BAYERISCHE MOTOREN WERKE AG   S": "BMW",
+    "Mercedes-Benz Group AG        N": "Mercedes-Benz",
+    "Volvo, AB ser. B": "Volvo",
+    # Consumer
+    "NESTLE N": "NestlÃ©",
+    "UNILEVER PLC ORD 3.5P": "Unilever",
+    "L'OREAL": "L'OrÃ©al",
+    "DIAGEO PLC ORD 28 101/108P": "Diageo",
+    "HEINEKEN": "Heineken",
+    # Luxury / Fashion
+    "adidas AG                     N": "Adidas",
+    "PUMA SE                       I": "Puma",
+    "ESSILORLUXOTTICA": "EssilorLuxottica",
+    "KERING": "Kering",
+    # Tech
+    "ASML HOLDING": "ASML",
+    "SAP SE                        I": "SAP",
+    "Nokia Corporation": "Nokia",
+    "Ericsson, Telefonab. L M ser. B": "Ericsson",
+    # Real Estate
+    "Vonovia SE                    N": "Vonovia",
+    "LEG Immobilien SE             N": "LEG Immobilien",
+    # Other
+    "PROSUS": "Prosus",
+}
+
+df["Company"] = df["Company"].map(name_map).fillna(df["Company"])
+
 #Saving dataset
-output_path = "C:/Users/KJ9115/Desktop/Restaurant/Candidature/Portfolio/Credit Risk Project/data/raw/european_companies.csv"
-#output_path = "...data/raw/european_companies.csv" ---> replace "..." with personal path
+output_path = ".../Credit Risk Project/data/raw/european_companies.csv"
+#output_path --> replace "..." with personal path
 df.to_csv(output_path, index=False)
 
 print("\nDataset salvato correttamente")
